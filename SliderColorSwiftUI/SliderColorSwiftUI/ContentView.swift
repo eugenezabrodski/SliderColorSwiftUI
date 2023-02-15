@@ -33,7 +33,7 @@ struct ContentView: View {
                     Slider(value: $valueRed, in: 0...1, step: 0.01)
                     .background(.blue)
                     .cornerRadius(40)
-                    TextField("Color", text: $valueRGB)
+                    TextField("Color", value: $valueRed, formatter: format())
                         .background(.white)
                         .padding()
                 }
@@ -60,6 +60,11 @@ struct ContentView: View {
             }
         }
         }
+    }
+    private func format() -> NumberFormatter{
+        let formatter = NumberFormatter()
+        formatter.value(forKey: valueRGB)
+        return formatter
     }
 }
 
